@@ -1,0 +1,22 @@
+function countWords(message){
+  // wirte your code here
+  var i;
+	var count = 0;
+	var flag = true;
+	var n = message.length;
+	for(i=0;i<=n;i++)
+	{
+		//如果是字母
+		if((input[i]<='z'&&input[i]>='a')||(input[i]<='Z'&&input[i]>='A'))
+			flag = true;
+		//如果上一个是字母，并且下一个不是字母，则单词个数加1
+		else if(flag)
+		{
+				count++;
+				flag = false;
+		}
+	}
+	return count;
+
+}
+countWords('Good morning, I love JavaScript.'); // should return 5
