@@ -1,0 +1,14 @@
+function palindrome(str){
+  // wirte your code here
+  var len = parseInt((str.length+1)/2);
+    for(var i=0; i<len; i++){
+	if (str[i] !== str[str.length-i-1]) {
+	    return false;
+	}
+    }
+    return true;
+
+
+}
+palindrome('hello'); // should return false
+palindrome('abcba'); // should return true
