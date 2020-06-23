@@ -1,0 +1,7 @@
+function alphabetSort(message){
+  // wirte your code here
+    var b=message.split("");       //分割字符串为数组
+    b.sort();              //数组升序排序
+    return b.join("");   
+}
+alphabetSort('hello'); // should return 'ehllo'
