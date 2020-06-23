@@ -1,0 +1,18 @@
+var user;
+Object.defineProperty(user, "name", {
+    value : "Jhon"
+});
+Object.defineProperty(user, "surname", {
+    value : "Mike"
+});
+
+user.name.value = "Peter";
+delete user.name; 
+
+var fruit = {
+apple: 20,
+pear: 20,
+peach: 10
+};
+var count = fruit.apple.value + fruit.pear.value + fruit.peach.value ;
+console.log("水果的个数为" + count +"个");
