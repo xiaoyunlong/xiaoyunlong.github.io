@@ -1,0 +1,14 @@
+function reverseString(message){
+  // wirte your code here
+            int i = 0;
+            String outString = "";
+            for (i = message.Length - 1; i >= 0; i--)
+            {
+                OutString += message[i];
+            }
+            return ouyString;
+}
+reverseString('hello'); // should return 'olleh'
+
+
+           
