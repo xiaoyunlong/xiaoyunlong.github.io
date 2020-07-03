@@ -6,6 +6,23 @@ from course
 where id = 1;
 
 # 2.Query the presence of both 1 and 2 courses
+select 
+     s.*,
+     c.*,
+     sc.*,
+     t.*
+from 
+     student_course sc 
+left join 
+     course c 
+on sc.courseId = c.id
+left join teacher t
+on c.teacherId = t.id
+left join student s
+on sc.studentId = s.id 
+where
+   c.id ="1"
+or c.id = "2"   
 
 # 3.Query the student number and student name and average score of students whose average score is 60 or higher.
  SELECT b.id, b.name,a FROM student AS b JOIN
@@ -13,6 +30,20 @@ where id = 1;
 ON b.id = c.studentId;
 
 # 4.Query the SQL statement of student information that does not have grades in the student_course table
+select
+    s.*
+from
+    student s
+where
+     id 
+in(
+select
+     studentId
+from 
+     student_course 
+where
+    score is null
+)
 
 # 5.Query all SQL with grades
 SELECT a.id, a.name,a.age,a.sex FROM student a JOIN
@@ -20,6 +51,30 @@ SELECT a.id, a.name,a.age,a.sex FROM student a JOIN
 ON a.id = b.studentId 
 
 # 6.Inquire about the information of classmates who have numbered 1 and also studied the course numbered 2
+select
+    s.*
+from
+    student s
+where
+     id 
+in(
+    select 
+         studentId
+    from 
+         student_course
+    where 
+        courseId ="1"
+    and 
+        studentId
+        in (
+          select 
+             studentId
+          from 
+               student_course
+          where 
+              courseId ="2" 
+        )
+)
 
 # 7.Retrieve 1 student score with less than 60 scores in descending order
 
@@ -28,7 +83,16 @@ SELECT student.*,score FROM student,student_course WHERE
    ORDER BY score DESC
 
 # 8.Query the average grade of each course. The results are ranked in descending order of average grade. When the average grades are the same, they are sorted in ascending order by course number.
-
+select 
+       courseId,
+       avg(score)
+from 
+     student_course
+group by 
+      courseId 
+order by 
+      avg(score) desc,
+      courseId asc
 
 # 9.Query the name and score of a student whose course name is "Math" and whose score is less than 60
 SELECT st.name,st.id,co.name, sc.score FROM 
