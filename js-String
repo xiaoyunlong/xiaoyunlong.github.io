@@ -1,0 +1,27 @@
+// Complete the following procedure, the 'name' variable in all letters to uppercase, output: ' 'HELLO' '.
+var name = 'hello';
+// TODO write your code here...
+console.log(name.toUpperCase());
+
+
+// Complete the following procedure, capitalizing all the words in the variable sentence and printing: 'Good Afternoon, Mr Mike.'
+var sentence = 'good afternoon, mr mike.';
+//TODO write your code here...
+	//将字符串分解为数组并将其小写化
+	var convertToArray = sentence.toLowerCase().split(" "); 
+	for (var i = 0; i < convertToArray.length; i++) {
+		var char = convertToArray[i].charAt(0);
+		//使用 replace()方法将数组中的每个首字母大写化
+		convertToArray[i] = convertToArray[i].replace(char, function replace(char) {
+			return char.toUpperCase();
+		});
+	}
+	console.log(convertToArray.join(" "));
+
+
+
+// Complete the following procedure to extract the amount of money variable, output: 20.
+var money = '￥20';
+//TODO write your code here...
+ money = money.replace(/[^0-9]/ig,""); //正则表达式去掉非数字
+ console.log(money);
