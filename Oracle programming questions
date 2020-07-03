@@ -1,1 +1,22 @@
 
+
+create table student(
+ id number(10) primary key,
+ name VARCHAR(15) NOT NULL,
+ age number(3) NOT NULL,
+ sex VARCHAR(10) NOT NULL,
+ )
+ 
+create table subject (
+ id number(10) primary key,
+ subject VARCHAR(15) NOT NULL,
+ teacher VARCHAR(10) NOT NULL,
+ description VARCHAR(200),
+ )
+ 
+create table score (
+ id number(10) primary key,
+  student_id VARCHAR(15) NOT NULL,
+ subject_id VARCHAR(15) NOT NULL,
+  score number(3) NOT NULL
+ )
