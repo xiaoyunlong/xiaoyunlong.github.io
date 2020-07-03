@@ -1,0 +1,55 @@
+  
+-- **Database level:**
+-- Display all the database
+show databases
+
+-- Enter a certain database
+use certain-databaseName
+
+-- Create a database
+CREATE DATABASE databaseName
+
+-- Create the database of the designated character set
+ CREATE DATABASE testdb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci
+
+-- Display the creation information fo the database
+不明白，后续请教
+SHOW CREATE DATABASE t1;
+-- Revise the codes of the database
+不明白，后续请教
+ set password for root@localhost = password(‘123456’);
+
+-- Delete a database
+drop database dbName;
+
+
+-- **Table level**
+-- Revise table name
+EXEC sp_rename 'TABLE1','TABLE2'
+
+-- Revise the field's data type
+
+ALTER  TABLE 表名 CHANGE [column] 旧字段名 新字段名 新数据类型;	
+
+-- Revise field name
+
+ALTER  TABLE 表名 CHANGE [column] 旧字段名 新字段名 新数据类型;	
+
+-- Add field
+
+ALTER TABLE 表名 ADD [COLUMN] 字段名 字段类型 是否可为空 COMMENT '注释' AFTER 指定某字段
+
+-- Delete field
+
+ALTER TABLE 表名 DROP [COLUMN] 字段名 ;
+
+
+-- Revise the table's storage engine
+ alter table tt7 engine=innodb;
+
+-- Delete the table's foreign key restriant
+alter table table1 drop constraint table1_table2_FK1
+
+-- Delete a table
+drop table 表名称                         
+truncate table 表名称     
